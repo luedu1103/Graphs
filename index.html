@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs</title>
+    <style>
+        body{
+            background-color: #1a1b26;
+        }
+
+        svg{
+            background-color:  #d5d6db;
+            border-radius: 400px;
+            display: none;
+        }
+        .links line {
+          stroke: #999;
+          stroke-opacity: 0.6;
+        }
+
+        .nodes circle {
+          stroke: #fff;
+          stroke-width: 1.5px;
+        }
+        #container{
+            text-align: center;
+            padding: 10px;
+        }
+        #option{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #5a4a78;
+            color: #fff;
+        }
+        #paragraph{
+            padding: 10px;
+            color: #d5d6db;
+        }
+        #table{
+            text-align: center;
+            color:#1a1b26;
+            display: none;
+            border-color: #d5d6db;
+            background-color: #d5d6db;
+            border-radius: 5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #table1{
+            display: none;
+        }
+        #table2{
+            display: none;
+        }
+        #table3{
+            display: none;
+        }
+        #table4{
+            display: none;
+        }
+        #inicio{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: large;
+            color: #d5d6db;
+            padding-top: 5vh;
+            padding-left: 17vw;
+            padding-right: 17vw;
+        }
+      </style>
+</head>
+<body>
+    <select name="Problemas" id="option">
+        <option value="0">Inicio</option>
+        <option value="1" id="problem1">Problema 1</option>
+        <option value="2" id="problem2a">Problema 2.a</option>
+        <option value="3" id="problem2b">Problema 2.b</option>
+        <option value="4" id="problem2c">Problema 2.c</option>
+        <option value="5" id="problem3a">Problema 3.a</option>
+        <option value="6" id="problem3b">Problema 3.b</option>
+        <option value="7" id="problem3c">Problema 3.c</option>
+        <option value="8" id="problem4a">Problema 4.a</option>
+        <option value="9" id="problem4b">Problema 4.b</option>
+        <option value="10" id="problem5a">Problema 5.a</option>
+        <option value="11" id="problem5b">Problema 5.b</option>
+        <option value="12" id="problem5c">Problema 5.c</option>
+        <option value="13" id="problem6a">Problema 6.a</option>
+        <option value="14" id="problem6b">Problema 6.b</option>
+        <option value="15" id="problem6c">Problema 6.c</option>
+    </select>
+    <div id="inicio">
+        <h1>Árboles</h1>
+        <h3>Alumno: Calle Huamantinco Luis Eduardo </h3>
+        <h3>Profesor: Ciro Rodriguez Rodriguez</h3>
+        <h4>Descripción: Pequeña aplicación para jugar con los grafos que se requerían o pedían en cada ejercicio de la tarea, además de sus respectivas tablas left-data-rigth. Los nodos se pueden acomodar a como uno guste</h4>
+    </div>
+    <div id="container" class="container">
+        <div id="paragraph"></div>
+        <svg width="500" height="500" id="image"></svg>
+        <div id="table">
+            <table width="500px" id="table1">
+                <tr>
+                  <th>INDICE</th>
+                  <th>LEFT</th>
+                  <th>DATA</th>
+                  <th>RIGHT</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>8</td>
+                  <td>A</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>B</td>
+                  <td>7</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>11</td>
+                  <td>C</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>3</td>
+                  <td>D</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>0</td>
+                  <td>E</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>6</td>
+                  <td>F</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>0</td>
+                  <td>G</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>0</td>
+                  <td>H</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>12</td>
+                  <td>I</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>0</td>
+                  <td>J</td>
+                  <td>0</td>
+                </tr>
+                  <tr>
+                  <td>12</td>
+                  <td>0</td>
+                  <td>K</td>
+                  <td>13</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>0</td>
+                  <td>L</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>15</td>
+                  <td>M</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>0</td>
+                  <td>O</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>P</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                <td>17</td>
+                <td>0</td>
+                <td>Q</td>
+                <td>0</td>
+                </tr>
+            </table>
+            <table width="400px" id="table2">
+                <tr>
+                    <th>INDICE</th>
+                    <th>LEFT</th>
+                    <th>DATA</th>
+                    <th>RIGHT</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>3</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>a</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>b</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>c</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>d</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>e</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>14</td>
+                    <td>f</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>0</td>
+                    <td>g</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>h</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>i</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>0</td>
+                    <td>j</td>
+                    <td>12</td>
+                  </tr>
+                    <tr>
+                    <td>12</td>
+                    <td>0</td>
+                    <td>k</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>l</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>0</td>
+                    <td>m</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>0</td>
+                    <td>n</td>
+                    <td>16</td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>0</td>
+                    <td>p</td>
+                    <td>0</td>
+                  </tr>
+            </table>
+            <table width="400px" id="table3">
+                <tr>
+                    <th>INDICE</th>
+                    <th>LEFT</th>
+                    <th>DATA</th>
+                    <th>RIGHT</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>3</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>1</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>5</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>0</td>
+                    <td>7</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>9</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>12</td>
+                  </tr>
+                    <tr>
+                    <td>12</td>
+                    <td>0</td>
+                    <td>11</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>12</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>0</td>
+                    <td>13</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>0</td>
+                    <td>14</td>
+                    <td>16</td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>0</td>
+                    <td>15</td>
+                    <td>0</td>
+                  </tr>
+            </table>
+            <table width="400px" id="table4">
+                <tr>
+                    <th>INDICE</th>
+                    <th>LEFT</th>
+                    <th>DATA</th>
+                    <th>RIGHT</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>5</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>12</td>
+                    <td>A</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>B</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>11</td>
+                    <td>C</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>F</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>0</td>
+                    <td>G</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>13</td>
+                    <td>H</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>I</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>0</td>
+                    <td>J</td>
+                    <td>0</td>
+                  </tr>
+                    <tr>
+                    <td>11</td>
+                    <td>0</td>
+                    <td>K</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>0</td>
+                    <td>L</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>0</td>
+                    <td>M</td>
+                    <td>0</td>
+                  </tr>
+            </table>
+            </div>
+    </div>
+    <script type="module">
+        import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+        import {forceSimulation, forceCollide, forceX} from "https://cdn.jsdelivr.net/npm/d3-force@3/+esm";
+
+        // Utilizando el botón
+        let option = document.getElementById('option');
+        let container = document.getElementById('container');
+        let image = document.getElementById('image');
+        let paragraph = document.getElementById('paragraph');
+        let inicio = document.getElementById('inicio');
+        // Tablas
+        let table = document.getElementById('table')
+        let table1 = document.getElementById('table1');
+        let table2 = document.getElementById('table2');
+        let table3 = document.getElementById('table3');
+        let table4 = document.getElementById('table4');
+        // Para los grafos
+        let svg = d3.select("svg");
+        let width = svg.attr("width");
+        let height = svg.attr("height");
+
+        option.addEventListener('click', function(){
+            console.log(option.value)
+            inicio.style.display = 'none'
+            table1.style.display = 'none';
+            table2.style.display = 'none';
+            table3.style.display = 'none';
+            table4.style.display = 'none';
+            image.style.display = 'inline-block';
+            if(option.value == 1){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {3-árbol} RAÍZ: {v4} ALTURA: {3} HOJAS: {v1,v3,v8,v9,v10}';
+                problem(graphProblem1);
+            } else if (option.value == 2){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {3-árbol} RAÍZ: {D}';
+                problem(graphProblem2a);
+            } else if (option.value == 3){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {2-árbol} RAÍZ: {D}';
+                problem(graphProblem2b);
+            } else if(option.value == 4){
+                paragraph.innerHTML = '';
+                image.style.display = 'none';
+                table.style.display = 'inline-block';
+                table1.style.display = 'inline';
+            } else if(option.value == 5){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {4-árbol} RAÍZ: {b}';
+                problem(graphProblem3a);
+            } else if (option.value == 6){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {2-árbol} RAÍZ: {b}';
+                problem(graphProblem3b);
+            } else if (option.value == 7){
+                paragraph.innerHTML = '';
+                image.style.display = 'none';
+                table.style.display = 'inline-block';
+                table2.style.display = 'inline';
+            } else if (option.value == 8){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {2-árbol} RAÍZ: {F}';
+                problem(graphProblem4a);
+            } else if (option.value == 9){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {3-árbol} RAÍZ: {F}';
+                problem(graphProblem4b);
+            } else if (option.value == 10){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {4-árbol} RAÍZ: {2}';
+                problem(graphProblem5a);
+            } else if (option.value == 11){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {2-árbol} RAÍZ: {2}';
+                problem(graphProblem5b);
+            } else if(option.value == 12){
+                paragraph.innerHTML = '';
+                image.style.display = 'none';
+                table.style.display = 'inline-block';
+                table3.style.display = 'inline';
+            } else if (option.value == 13){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {3-árbol} RAÍZ: {E}';
+                problem(graphProblem6a);
+            } else if (option.value == 14){
+                image.innerHTML = '';
+                paragraph.innerHTML = 'TIPO DE ÁRBOL: {2-árbol} RAÍZ: {E}';
+                problem(graphProblem6b);
+            } else if(option.value == 15){
+                paragraph.innerHTML = '';
+                image.style.display = 'none';
+                table.style.display = 'inline-block';
+                table4.style.display = 'inline';
+            } else if(option.value == 0){
+                paragraph.innerHTML = '';
+                image.style.display = 'none';
+                inicio.style.display = 'flex'
+            }
+        })
+
+        // Para el problema 1
+        let graphProblem1 = {
+            nodes:[
+                {name:'v1'},
+                {name:'v2'},
+                {name:'v3'},
+                {name:'v4'},
+                {name:'v5'},
+                {name:'v6'},
+                {name:'v7'},
+                {name:'v8'},
+                {name:'v9'},
+                {name:'v10'},
+            ],
+            links:[
+                {source:'v2', target:'v3'},
+                {source:'v2', target:'v1'},
+                {source:'v4', target:'v5'},
+                {source:'v4', target:'v6'},
+                {source:'v5', target:'v8'},
+                {source:'v6', target:'v7'},
+                {source:'v4', target:'v2'},
+                {source:'v7', target:'v9'},
+                {source:'v7', target:'v10'},
+            ]
+        };
+
+        // Para el problema 2a
+        let graphProblem2a = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'D'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+                {name:'L'},
+                {name:'M'},
+                {name:'O'},
+                {name:'P'},
+                {name:'Q'},
+            ],
+            links:[
+                {source:'B', target:'C'},
+                {source:'F', target:'E'},
+                {source:'F', target:'I'},
+                {source:'F', target:'M'},
+                {source:'A', target:'G'},
+                {source:'A', target:'H'},
+                {source:'C', target:'J'},
+                {source:'D', target:'B'},
+                {source:'D', target:'F'},
+                {source:'B', target:'A'},
+                {source:'I', target:'K'},
+                {source:'I', target:'L'},
+                {source:'M', target:'O'},
+                {source:'M', target:'P'},
+                {source:'P', target:'Q'},
+            ]
+        };
+
+        // Para el problema 2b
+        let graphProblem2b = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'D'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+                {name:'L'},
+                {name:'M'},
+                {name:'O'},
+                {name:'P'},
+                {name:'Q'},
+            ],
+            links:[
+                {source:'D', target:'B'},
+                {source:'B', target:'F'},
+                {source:'B', target:'C'},
+                {source:'C', target:'A'},
+                {source:'A', target:'G'},
+                {source:'G', target:'H'},
+                {source:'C', target:'J'},
+                {source:'F', target:'E'},
+                {source:'E', target:'I'},
+                {source:'I', target:'M'},
+                {source:'I', target:'K'},
+                {source:'K', target:'L'},
+                {source:'M', target:'O'},
+                {source:'O', target:'P'},
+                {source:'P', target:'Q'},
+            ]
+        };
+
+        // Problema 3a
+        let graphProblem3a = {
+            nodes:[
+                {name:'a'},
+                {name:'b'},
+                {name:'c'},
+                {name:'d'},
+                {name:'e'},
+                {name:'f'},
+                {name:'g'},
+                {name:'h'},
+                {name:'i'},
+                {name:'j'},
+                {name:'k'},
+                {name:'l'},
+                {name:'m'},
+                {name:'n'},
+                {name:'p'},
+            ],
+            links:[
+                {source:'a', target:'l'},
+                {source:'b', target:'c'},
+                {source:'b', target:'d'},
+                {source:'c', target:'a'},
+                {source:'c', target:'e'},
+                {source:'c', target:'f'},
+                {source:'d', target:'h'},
+                {source:'d', target:'i'},
+                {source:'f', target:'m'},
+                {source:'i', target:'j'},
+                {source:'i', target:'k'},
+                {source:'i', target:'n'},
+                {source:'h', target:'g'},
+                {source:'i', target:'p'},
+            ]
+        };
+
+        // Problema 3b
+        let graphProblem3b = {
+            nodes:[
+                {name:'a'},
+                {name:'b'},
+                {name:'c'},
+                {name:'d'},
+                {name:'e'},
+                {name:'f'},
+                {name:'g'},
+                {name:'h'},
+                {name:'i'},
+                {name:'j'},
+                {name:'k'},
+                {name:'l'},
+                {name:'m'},
+                {name:'n'},
+                {name:'p'},
+            ],
+            links:[
+                {source:'b', target:'c'},
+                {source:'c', target:'a'},
+                {source:'c', target:'d'},
+                {source:'a', target:'l'},
+                {source:'a', target:'e'},
+                {source:'e', target:'f'},
+                {source:'f', target:'m'},
+                {source:'d', target:'h'},
+                {source:'h', target:'g'},
+                {source:'h', target:'i'},
+                {source:'i', target:'j'},
+                {source:'j', target:'k'},
+                {source:'k', target:'n'},
+                {source:'n', target:'p'},
+            ]
+        };
+
+        // Problema 4a
+        let graphProblem4a = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'D'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+            ],
+            links:[
+                {source:'F', target:'A'},
+                {source:'A', target:'H'},
+                {source:'A', target:'C'},
+                {source:'H', target:'K'},
+                {source:'H', target:'J'},
+                {source:'C', target:'B'},
+                {source:'C', target:'G'},
+                {source:'B', target:'E'},
+                {source:'E', target:'D'},
+                {source:'D', target:'I'},
+            ]
+        };
+
+        // Problema 4a
+        let graphProblem4b = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'D'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+            ],
+            links:[
+                {source:'F', target:'A'},
+                {source:'F', target:'C'},
+                {source:'F', target:'G'},
+                {source:'A', target:'H'},
+                {source:'A', target:'J'},
+                {source:'H', target:'K'},
+                {source:'C', target:'B'},
+                {source:'C', target:'E'},
+                {source:'E', target:'D'},
+                {source:'E', target:'I'},
+            ]
+        };
+
+        // Problema 5a
+        let graphProblem5a = {
+            nodes:[
+                {name:'1'},
+                {name:'2'},
+                {name:'3'},
+                {name:'4'},
+                {name:'5'},
+                {name:'6'},
+                {name:'7'},
+                {name:'8'},
+                {name:'9'},
+                {name:'10'},
+                {name:'11'},
+                {name:'12'},
+                {name:'13'},
+                {name:'14'},
+                {name:'15'},
+            ],
+            links:[
+                {source:'1', target:'12'},
+                {source:'2', target:'3'},
+                {source:'2', target:'4'},
+                {source:'3', target:'1'},
+                {source:'3', target:'5'},
+                {source:'3', target:'6'},
+                {source:'4', target:'8'},
+                {source:'4', target:'9'},
+                {source:'6', target:'13'},
+                {source:'9', target:'10'},
+                {source:'9', target:'11'},
+                {source:'9', target:'14'},
+                {source:'8', target:'7'},
+                {source:'9', target:'15'},
+            ]
+        };
+
+        // Problema 5b
+        let graphProblem5b = {
+            nodes:[
+                {name:'1'},
+                {name:'2'},
+                {name:'3'},
+                {name:'4'},
+                {name:'5'},
+                {name:'6'},
+                {name:'7'},
+                {name:'8'},
+                {name:'9'},
+                {name:'10'},
+                {name:'11'},
+                {name:'12'},
+                {name:'13'},
+                {name:'14'},
+                {name:'15'},
+            ],
+            links:[
+                {source:'2', target:'3'},
+                {source:'3', target:'1'},
+                {source:'3', target:'4'},
+                {source:'1', target:'12'},
+                {source:'1', target:'5'},
+                {source:'5', target:'6'},
+                {source:'6', target:'13'},
+                {source:'4', target:'8'},
+                {source:'8', target:'9'},
+                {source:'8', target:'7'},
+                {source:'9', target:'10'},
+                {source:'10', target:'11'},
+                {source:'11', target:'14'},
+                {source:'14', target:'15'},
+            ]
+        };
+
+        // Para el problema 6a
+        let graphProblem6a = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+                {name:'L'},
+                {name:'M'},
+            ],
+            links:[
+                {source:'E', target:'B'},
+                {source:'E', target:'C'},
+                {source:'E', target:'F'},
+                {source:'B', target:'A'},
+                {source:'B', target:'G'},
+                {source:'C', target:'K'},
+                {source:'F', target:'H'},
+                {source:'F', target:'I'},
+                {source:'F', target:'J'},
+                {source:'A', target:'L'},
+                {source:'H', target:'M'},
+            ]
+        };
+
+        // Para el problema 6b
+        let graphProblem6b = {
+            nodes:[
+                {name:'A'},
+                {name:'B'},
+                {name:'C'},
+                {name:'E'},
+                {name:'F'},
+                {name:'G'},
+                {name:'H'},
+                {name:'I'},
+                {name:'J'},
+                {name:'K'},
+                {name:'L'},
+                {name:'M'},
+            ],
+            links:[
+                {source:'E', target:'B'},
+                {source:'B', target:'A'},
+                {source:'B', target:'C'},
+                {source:'A', target:'L'},
+                {source:'A', target:'G'},
+                {source:'C', target:'K'},
+                {source:'C', target:'F'},
+                {source:'F', target:'H'},
+                {source:'H', target:'M'},
+                {source:'H', target:'I'},
+                {source:'I', target:'J'},
+            ]
+        };
+        // Funcion que genera el grafo
+        function problem(graph){
+
+            let simulation = d3
+                .forceSimulation(graph.nodes)
+                .force(
+                "link",
+                d3
+                    .forceLink()
+                    .id(function(d) {
+                    return d.name;
+                    })
+                    .links(graph.links)
+                )
+                .force("charge", d3.forceManyBody().strength(-100))
+                .force("center", d3.forceCenter(width/2, height/2))
+                .on("tick", ticked);
+
+            let link = svg
+                .append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter()
+                .append("line")
+                .attr("stroke-width", function(d) {
+                return 5;
+                });
+
+            let node = svg
+                .append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter()
+                .append("circle")
+                .attr("r", 20)
+                .attr("fill", function(d) {
+                return "gray";
+                })
+                .call(
+                d3
+                    .drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                );
+
+            let texts = svg
+                .append('g')
+                .selectAll('text')
+                .data(graph.nodes)
+                .enter()
+                .append('text')
+                .text(d => d.name);
+
+            function ticked() {
+                texts.attr('x', d => d.x);
+                texts.attr('y', d => d.y);
+                link
+                .attr("x1", function(d) {
+                    return d.source.x;
+                })
+                .attr("y1", function(d) {
+                    return d.source.y;
+                })
+                .attr("x2", function(d) {
+                    return d.target.x;
+                })
+                .attr("y2", function(d) {
+                    return d.target.y;
+                });
+
+                node
+                .attr("cx", function(d) {
+                    return d.x;
+                })
+                .attr("cy", function(d) {
+                    return d.y;
+                });
+            }
+
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+                console.log(d.name)
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+        }
+
+    </script>
+</body>
+</html>
